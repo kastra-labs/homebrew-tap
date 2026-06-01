@@ -36,8 +36,10 @@ class KastraEdge < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/kastra-edge --version")
+    # kastra-edge / kastrahook are subcommand- and stdin-driven (no --version);
+    # kastra-mcp is the one CLI with a --version flag.
     assert_match "0.2.0", shell_output("#{bin}/kastra-mcp --version")
-    assert_match "0.2.0", shell_output("#{bin}/kastrahook --version")
+    assert_predicate bin/"kastra-edge", :executable?
+    assert_predicate bin/"kastrahook", :executable?
   end
 end
