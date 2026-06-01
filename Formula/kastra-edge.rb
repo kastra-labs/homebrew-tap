@@ -9,10 +9,10 @@ class KastraEdge < Formula
   # version + sha256 are filled by .github/workflows/release.yml.
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-arm64.tar.gz"
-    sha256 "c7eeca4fd2c3c93bdaa5f700c58243d48ae482bc77d775bb7c8cbdad3c916688"
+    sha256 "47bd8222ce328c508c98191981ec582b86d7405d3efd22595cbe64153934c225"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-amd64.tar.gz"
-    sha256 "4c93b59cdc870c9e4230ccaa17d67ebe49762fad6280d17ad5a0722a2724e7e1"
+    sha256 "1f7dbb7158312422c3f9516ee84a87d6862042faa68b4592af8a6807f44b849b"
   end
 
   def install
