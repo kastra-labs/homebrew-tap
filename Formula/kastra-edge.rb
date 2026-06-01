@@ -1,17 +1,18 @@
 class KastraEdge < Formula
   desc "Kastra Edge clients (kastrahook, kastra-mcp, kastra-edge CLI)"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.2.0"
+  version "0.2.1" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   # Published to the PUBLIC kastra-edge-releases repo (kastra-edge source is
   # private; credential-less Homebrew can only fetch public assets).
+  # version + sha256 are filled by .github/workflows/release.yml.
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-arm64.tar.gz"
-    sha256 "56277f737f02d42abf5a3797ea2d5fc0095d1f5930a2264c10f10a9548d6ccfd"
+    sha256 "c7eeca4fd2c3c93bdaa5f700c58243d48ae482bc77d775bb7c8cbdad3c916688"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-amd64.tar.gz"
-    sha256 "524050d62697f84f7f22e737b9c083b5dc6bcbaa08c3e05517fb652e0ab7a3e5"
+    sha256 "4c93b59cdc870c9e4230ccaa17d67ebe49762fad6280d17ad5a0722a2724e7e1"
   end
 
   def install
@@ -38,7 +39,7 @@ class KastraEdge < Formula
   test do
     # kastra-edge / kastrahook are subcommand- and stdin-driven (no --version);
     # kastra-mcp is the one CLI with a --version flag.
-    assert_match "0.2.0", shell_output("#{bin}/kastra-mcp --version")
+    assert_match version.to_s, shell_output("#{bin}/kastra-mcp --version")
     assert_predicate bin/"kastra-edge", :executable?
     assert_predicate bin/"kastrahook", :executable?
   end

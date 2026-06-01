@@ -1,23 +1,22 @@
 class KastraMcp < Formula
   desc "Kastra read-only MCP server for Claude Code / Codex"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.2.0"
+  version "0.2.1" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-mcp-darwin-arm64"
-    sha256 "ae5eb0fc1ad06e7feca4cd92db384314c29a022204e07428e56b16a637e8d2c4"
+    sha256 "cfe9edd69a5938d9ba12a36b0db13b84b3893221578b40daa8d080e1c7e0f479"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-mcp-darwin-amd64"
-    sha256 "b33f8933878f14d0411b695d996b57cd071e7787a41a351f14c854f74ed8bad7"
+    sha256 "55729be8560355b6c2c260ef394fbed60a252cb6e217b4dc8d33f70351de771b"
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    bin.install "kastra-mcp-darwin-#{arch}" => "kastra-mcp"
+    bin.install Dir["kastra-mcp-*"].first => "kastra-mcp"
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/kastra-mcp --version")
+    assert_match version.to_s, shell_output("#{bin}/kastra-mcp --version")
   end
 end

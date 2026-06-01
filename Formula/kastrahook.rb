@@ -1,20 +1,19 @@
 class Kastrahook < Formula
   desc "Kastra policy hook for Claude Code / Codex (PreToolUse enforcement)"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.2.0"
+  version "0.2.1" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastrahook-darwin-arm64"
-    sha256 "48f0c3c54c67b0e53a83226f1f8165fb1e7a80cae24320dea03ead587ee277c6"
+    sha256 "82567ec0301f5516654b012d555213c7fc4567b8671dfc0f4d98a9037bb142f0"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastrahook-darwin-amd64"
-    sha256 "b9fccddb59bc3136c40576f97eb20cd66225dc92d681468e6392cc08063fe561"
+    sha256 "449c66b7fb24d541ca58985e864ef577d5f48a107bba3e0ce77cbfad3d966733"
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    bin.install "kastrahook-darwin-#{arch}" => "kastrahook"
+    bin.install Dir["kastrahook-*"].first => "kastrahook"
   end
 
   test do
