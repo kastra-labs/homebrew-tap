@@ -1,7 +1,7 @@
 class KastraEdge < Formula
   desc "Kastra Edge clients (kastrahook, kastra-mcp, kastra-edge CLI)"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.5.8" # filled by release.yml on a cli-v* tag
+  version "0.5.9" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   # Published to the PUBLIC kastra-edge-releases repo (kastra-edge source is
@@ -9,10 +9,10 @@ class KastraEdge < Formula
   # version + sha256 are filled by .github/workflows/release.yml.
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-arm64.tar.gz"
-    sha256 "8f2df2f02d07261c9d89e56d9a7257e064b2b8b06488489373f37359a593afe6"
+    sha256 "4d406fcd842757100e92c2abccc0973992722885da5bab79d65330d9e2df2cc5"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-edge-bundle-darwin-amd64.tar.gz"
-    sha256 "55daf55da9b9813444e30d5e63f086fca18a933a609fe5773533c84c483f5626"
+    sha256 "21005170e60910ec3f34c4565be7f4517615197ffaed5e37571c7e4222acb047"
   end
 
   def install

@@ -1,15 +1,15 @@
 class KastraMcp < Formula
   desc "Kastra read-only MCP server for Claude Code / Codex"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.5.8" # filled by release.yml on a cli-v* tag
+  version "0.5.9" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-mcp-darwin-arm64"
-    sha256 "d6f0f835a552df4bc8d82a0c22bbe91d49736c9a86ca519117e0f903dce44f82"
+    sha256 "8e9caa5892788b9049dc8e33c9ad251c32e48bf587c955cdfe809bb4732669fd"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-mcp-darwin-amd64"
-    sha256 "ee9ecaa767670a6e673b909fd74baed165b2e066fc36cefd20022ad5e7783dd4"
+    sha256 "d45743ab8aacee6348add1cdb1c359426bb8f1eb214e3a4828c07a2bed376e9a"
   end
 
   def install
