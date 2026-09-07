@@ -1,15 +1,15 @@
 class Kastrahook < Formula
   desc "Kastra policy hook for Claude Code / Codex (PreToolUse enforcement)"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.12.6" # filled by release.yml on a cli-v* tag
+  version "0.13.0" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   if Hardware::CPU.arm?
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastrahook-darwin-arm64"
-    sha256 "e31229704f867a28e56066f08d63c28b8a0712f7acbe8036b6cd04179c925863"
+    sha256 "e499da74ce45495ccc7b60b48635b23cac5ad2835208942851bb2b975b4d93bc"
   else
     url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastrahook-darwin-amd64"
-    sha256 "856cc3a1aa7cf1eb58b53403680096a54bab6649188bdaa3c0fbff2edfa6196e"
+    sha256 "cc1a57c01fd1f71735d71503f05ab1d4fe9729704066bc13281412b65d85af74"
   end
 
   def install
