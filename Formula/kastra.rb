@@ -1,7 +1,7 @@
 class Kastra < Formula
   desc "Kastra control-plane CLI — manage policies, evidence, agents, and CI from your terminal"
   homepage "https://github.com/kastra-labs/kastra-edge"
-  version "0.13.8" # filled by release.yml on a cli-v* tag
+  version "0.13.9" # filled by release.yml on a cli-v* tag
   license :cannot_represent
 
   # `kastra` is the universal, cross-platform control-plane CLI (distinct from
@@ -12,20 +12,20 @@ class Kastra < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-darwin-arm64.tar.gz"
-      sha256 "64fe40abe37104a05847c4d9e2f2aed51af985e90dc278d7ae4aca5992038ada"
+      sha256 "44a077ae13b6344fc2200675bb77525fcef83a20e2cf0b4999e103f97bff92b8"
     else
       url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-darwin-amd64.tar.gz"
-      sha256 "8f3d0103bafd6ba30b70f4039f8bf3eb20441e5696e9f4d015cc797c725edd2e"
+      sha256 "580c257abf29955908ed3318bfcfd58d544369cb4f06b42c3760e3a77af18c19"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-linux-arm64.tar.gz"
-      sha256 "8e04780c2ca171cdbab97242c1da64a864a876ca3750d7e3cba874fe3affdd30"
+      sha256 "7210c923075cca6d157bf32f52587b30373a9731e0a063a799b8fb5f8c939e33"
     else
       url "https://github.com/kastra-labs/kastra-edge-releases/releases/download/cli-v#{version}/kastra-linux-amd64.tar.gz"
-      sha256 "1add5c598e098f1f7aa26720f49c160b3cd920c453296d39261c8b2a83552679"
+      sha256 "bf61153aa0e1974b3b9ffcddfbfcc812ea3439f1f53e5d677a53efdcdeda40ae"
     end
   end
 
